@@ -2,7 +2,7 @@
 sysctl-formula
 ==============
 
-Salt Stack Formula to modify kernel parameters using sysctl
+Salt Stack Formula to modify kernel parameters
 
 NOTICE BEFORE YOU USE
 =====================
