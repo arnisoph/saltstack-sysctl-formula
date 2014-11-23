@@ -2,6 +2,10 @@
 sysctl-formula
 ==============
 
+.. image:: https://api.flattr.com/button/flattr-badge-large.png
+    :target:
+    https://flattr.com/submit/auto?user_id=bechtoldt&url=https%3A%2F%2Fgithub.com%2Fbechtoldt%2Fsaltstack-sysctl-formula
+
 Salt Stack Formula to modify kernel parameters
 
 NOTICE BEFORE YOU USE
@@ -30,7 +34,7 @@ Available states
     :local:
 
 ``sysctl``
-------------
+----------
 Set user-defined kernel parameters
 
 Additional resources
@@ -58,7 +62,8 @@ Salt Compatibility
 
 Tested with:
 
-* 2014.1.4
+* 2014.1
+* 2014.7
 
 OS Compatibility
 ================
@@ -67,3 +72,4 @@ Tested with:
 
 * GNU/ Linux Debian Wheezy
 * CentOS 6
+* CentOS 7
