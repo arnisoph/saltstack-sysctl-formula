@@ -1,15 +1,16 @@
-{% from "sysctl/defaults.yaml" import rawmap with context %}
-{% set datamap = salt['grains.filter_by'](rawmap, merge=salt['pillar.get']('sysctl:lookup')) %}
+#!jinja|yaml
 
-{% for p in salt['pillar.get']('sysctl:params') %}
+{% set datamap = salt['formhelper.get_defaults']('sysctl', saltenv, ['yaml'])['yaml'] %}
+
+{% for p in datamap.params|default([]) %}
  {% if p.set|default('sysctl') == 'manual' %}
-sysctl-{{ p.name }}-manual:
+sysctl_{{ p.name }}_manual:
   cmd:
     - run
     - name: echo '{{ p.value }}' > {{ p.name }}
     - unless: /usr/bin/test "$(/bin/cat {{ p.name }})" = {{ p.value }}
  {% else %}
-sysctl-{{ p.name }}:
+sysctl_{{ p.name }}:
   sysctl:
     - {{ p.ensure|default('present') }}
     - name: {{ p.name }}
