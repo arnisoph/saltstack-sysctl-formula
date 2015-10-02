@@ -1,6 +1,6 @@
 #!jinja|yaml
 
-{% set datamap = salt['formhelper.get_defaults']('sysctl', saltenv, ['yaml'])['yaml'] %}
+{% set datamap = salt['formhelper.get_defaults']('sysctl', saltenv) %}
 
 {% for p in datamap.params|default([]) %}
  {% if p.set|default('sysctl') == 'manual' %}
